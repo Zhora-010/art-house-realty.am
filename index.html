@@ -1,200 +1,777 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Arthause Realty — Недвижимость в Гюмри</title>
-<meta name="description" content="Купить и продать квартиру в Гюмри. Лучшие предложения недвижимости в Армении.">
-<meta property="og:title" content="Arthause Realty">
-<meta property="og:description" content="Лучшие предложения недвижимости в Армении">
-<meta property="og:type" content="website">
-<style>
-:root{--bg:#eef0f1;--card:#fff;--ink:#1d2226;--mute:#5d676e;--accent:#2f5d73;--line:#d5dade;--danger:#a8322a}
-@media (prefers-color-scheme:dark){:root{--bg:#15191c;--card:#1e2327;--ink:#e8ecee;--mute:#9aa5ab;--accent:#7fb2c9;--line:#2e353a;--danger:#e0766d}}
-*{box-sizing:border-box;margin:0}
-body{font-family:Georgia,"Times New Roman",serif;background:var(--bg);color:var(--ink);line-height:1.6}
-a{color:inherit}
-header{display:flex;justify-content:space-between;align-items:center;padding:16px 5vw;border-bottom:1px solid var(--line)}
-.logo{font-size:1.4rem;font-weight:700;text-decoration:none}
-nav{font-family:system-ui,sans-serif;font-size:.95rem}
-nav a,nav button{margin-left:20px;text-decoration:none;color:var(--mute);background:none;border:0;font:inherit;cursor:pointer}
-nav a:hover,nav button:hover{color:var(--accent)}
-.hero{padding:9vw 5vw 6vw;max-width:900px}
-.hero h1{font-size:clamp(2rem,6vw,4rem);line-height:1.1}
-.hero p{margin-top:16px;color:var(--mute);font-size:1.15rem;max-width:560px}
-.filters{display:flex;flex-wrap:wrap;gap:10px;padding:0 5vw 24px;font-family:system-ui,sans-serif}
-input,select,textarea{padding:10px 12px;border:1px solid var(--line);border-radius:6px;background:var(--card);color:var(--ink);font:inherit;font-family:system-ui,sans-serif}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:22px;padding:0 5vw 60px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:8px;overflow:hidden;font-family:system-ui,sans-serif}
-.pic{height:170px;display:flex;align-items:flex-end;padding:12px;color:#fff;font-weight:600;background:linear-gradient(135deg,#2f5d73,#1d2226) center/cover}
-.body{padding:16px}
-.price{font-size:1.3rem;font-weight:700}
-.meta{color:var(--mute);font-size:.9rem;margin-top:4px}
-.btn{display:inline-block;margin-top:12px;margin-right:6px;padding:8px 14px;background:var(--accent);color:#fff;border:0;border-radius:6px;text-decoration:none;font:inherit;font-size:.9rem;cursor:pointer}
-.btn.alt{background:none;color:var(--ink);border:1px solid var(--line)}
-.btn.del{background:none;color:var(--danger);border:1px solid var(--danger)}
-#empty{padding:0 5vw 60px;color:var(--mute);display:none;font-family:system-ui,sans-serif}
-section.contact{padding:50px 5vw;border-top:1px solid var(--line)}
-section.contact h2{margin-bottom:10px}
-footer{padding:24px 5vw;color:var(--mute);font-family:system-ui,sans-serif;font-size:.85rem;border-top:1px solid var(--line)}
-/* admin */
-#admin{display:none;padding:24px 5vw;background:var(--card);border-bottom:2px solid var(--accent);font-family:system-ui,sans-serif}
-body.is-admin #admin{display:block}
-#admin h3{margin:0 0 10px}
-.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:28px}
-.f{display:grid;gap:8px}
-.row{display:flex;gap:8px;flex-wrap:wrap}
-.row>*{flex:1;min-width:120px}
-.admin-only{display:none}
-body.is-admin .admin-only{display:inline-block}
-.note{color:var(--mute);font-size:.85rem;margin-top:8px}
-:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Art House Realty</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            color: #222;
+        }
+
+        header {
+            background: #111;
+            color: white;
+            padding: 18px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #c9a45c;
+        }
+
+        .add-button {
+            background: #c9a45c;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        .add-button:hover {
+            background: #b38d45;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .search {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+        }
+
+        .search input,
+        .search select {
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            margin-right: 8px;
+            margin-bottom: 8px;
+        }
+
+        .search input {
+            width: 300px;
+        }
+
+        .listings {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background: #ddd;
+        }
+
+        .card-content {
+            padding: 18px;
+        }
+
+        .card h3 {
+            margin-bottom: 10px;
+        }
+
+        .price {
+            color: #c19a52;
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .info {
+            color: #666;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .details-button {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            background: #111;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .delete-button {
+            padding: 10px 14px;
+            border: none;
+            background: #d9534f;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.6);
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background: white;
+            width: 100%;
+            max-width: 600px;
+            max-height: 90vh;
+            overflow-y: auto;
+            border-radius: 10px;
+            padding: 25px;
+        }
+
+        .modal-content h2 {
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 15px;
+        }
+
+        textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .form-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .save-button {
+            flex: 1;
+            padding: 13px;
+            background: #111;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .cancel-button {
+            flex: 1;
+            padding: 13px;
+            background: #ddd;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .empty {
+            text-align: center;
+            padding: 60px;
+            color: #777;
+            grid-column: 1 / -1;
+        }
+
+        @media (max-width: 600px) {
+
+            header {
+                padding: 15px;
+            }
+
+            .logo {
+                font-size: 20px;
+            }
+
+            .add-button {
+                padding: 9px 12px;
+            }
+
+            .search input {
+                width: 100%;
+            }
+        }
+    </style>
 </head>
+
 <body>
+
 <header>
-  <a class="logo" href="#">Arthause Realty</a>
-  <nav><a href="#listings">Объекты</a><a href="#contact">Контакты</a><button id="loginBtn">Админ</button></nav>
+
+    <div class="logo">
+        Art House <span>Realty</span>
+    </div>
+
+    <button class="add-button" onclick="openModal()">
+        + Добавить объявление
+    </button>
+
 </header>
 
-<div id="admin">
-  <div class="cols">
-    <form class="f" id="itemForm">
-      <h3 id="formTitle">Добавить объявление</h3>
-      <input id="fTitle" placeholder="Название" required>
-      <div class="row">
-        <select id="fType"><option>Квартира</option><option>Дом</option><option>Участок</option></select>
-        <input id="fRooms" type="number" min="0" placeholder="Комнат">
-      </div>
-      <div class="row">
-        <input id="fArea" type="number" min="0" placeholder="Площадь, м²">
-        <input id="fPrice" type="number" min="0" placeholder="Цена, $" required>
-      </div>
-      <input id="fAddr" placeholder="Адрес">
-      <input id="fImg" placeholder="Ссылка на фото (необязательно)">
-      <div class="row"><button class="btn" type="submit" id="fSubmit">Добавить</button><button class="btn alt" type="button" id="fCancel" style="display:none">Отмена</button></div>
-    </form>
-    <form class="f" id="textForm">
-      <h3>Тексты сайта</h3>
-      <input id="tTitle" placeholder="Главный заголовок">
-      <textarea id="tText" rows="3" placeholder="Подзаголовок"></textarea>
-      <div class="row"><input id="tPhone" placeholder="Телефон"><input id="tEmail" placeholder="Email"></div>
-      <button class="btn" type="submit">Сохранить тексты</button>
-    </form>
-    <div class="f">
-      <h3>Публикация</h3>
-      <p class="note">Изменения сохраняются в вашем браузере. Чтобы их увидели посетители, скачайте data.json и загрузите его в репозиторий GitHub рядом с index.html.</p>
-      <div class="row"><button class="btn" id="exportBtn">Скачать data.json</button><button class="btn alt" id="resetBtn">Сбросить черновик</button><button class="btn alt" id="logoutBtn">Выйти</button></div>
+
+<div class="container">
+
+    <div class="search">
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Поиск по адресу..."
+            oninput="displayListings()"
+        >
+
+        <select id="typeFilter" onchange="displayListings()">
+            <option value="">Все типы</option>
+            <option value="Квартира">Квартиры</option>
+            <option value="Дом">Дома</option>
+        </select>
+
+        <select id="roomsFilter" onchange="displayListings()">
+            <option value="">Комнаты</option>
+            <option value="1">1 комната</option>
+            <option value="2">2 комнаты</option>
+            <option value="3">3 комнаты</option>
+            <option value="4">4 комнаты</option>
+        </select>
+
     </div>
-  </div>
+
+
+    <div id="listings" class="listings"></div>
+
 </div>
 
-<div class="hero"><h1 id="heroTitle"></h1><p id="heroText"></p></div>
 
-<div class="filters" id="listings">
-  <select id="type"><option value="">Все типы</option><option>Квартира</option><option>Дом</option><option>Участок</option></select>
-  <select id="rooms"><option value="">Комнаты</option><option value="1">1</option><option value="2">2</option><option value="3">3+</option></select>
-  <input id="max" type="number" placeholder="Макс. цена, $" min="0">
+<!-- МОДАЛЬНОЕ ОКНО -->
+
+<div id="modal" class="modal">
+
+    <div class="modal-content">
+
+        <h2>Добавить объявление</h2>
+
+        <form id="listingForm">
+
+            <div class="form-group">
+
+                <label>Тип недвижимости</label>
+
+                <select id="propertyType" required>
+
+                    <option value="Квартира">
+                        Квартира
+                    </option>
+
+                    <option value="Дом">
+                        Дом
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>Название</label>
+
+                <input
+                    type="text"
+                    id="title"
+                    placeholder="Например: 3-комнатная квартира"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>Адрес</label>
+
+                <input
+                    type="text"
+                    id="address"
+                    placeholder="Например: Ереван, Комитаса"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>Цена ($)</label>
+
+                <input
+                    type="number"
+                    id="price"
+                    placeholder="120000"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>Площадь (м²)</label>
+
+                <input
+                    type="number"
+                    id="area"
+                    placeholder="85"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>Количество комнат</label>
+
+                <select id="rooms" required>
+
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5+</option>
+
+                </select>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>Этаж</label>
+
+                <input
+                    type="text"
+                    id="floor"
+                    placeholder="Например: 7/16"
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>Фото</label>
+
+                <input
+                    type="file"
+                    id="image"
+                    accept="image/*"
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>Описание</label>
+
+                <textarea
+                    id="description"
+                    placeholder="Описание недвижимости..."
+                ></textarea>
+
+            </div>
+
+
+            <div class="form-buttons">
+
+                <button
+                    type="submit"
+                    class="save-button"
+                >
+                    Сохранить
+                </button>
+
+                <button
+                    type="button"
+                    class="cancel-button"
+                    onclick="closeModal()"
+                >
+                    Отмена
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
 </div>
-<div class="grid" id="grid"></div>
-<p id="empty">Ничего не найдено. Измените фильтры.</p>
 
-<section class="contact" id="contact">
-  <h2>Связаться с нами</h2>
-  <p>Телефон: <a id="phoneLink" href="#"></a><br>Email: <a id="emailLink" href="#"></a></p>
-</section>
-<footer>© <span id="y"></span> Arthause Realty. Гюмри, Армения.</footer>
 
 <script>
-const ADMIN_PASSWORD="admin123"; // ОБЯЗАТЕЛЬНО смените пароль
-const KEY="arthause_draft";
-const DEFAULT={
- texts:{title:"Квартиры и дома в Гюмри",text:"Покупка и продажа недвижимости в Армении. Выберите объект или оставьте заявку.",phone:"+374 00 000 000",email:"info@example.com"},
- listings:[
-  {id:1,title:"3-комнатная квартира, центр",type:"Квартира",rooms:3,area:78,price:52000,addr:"ул. Горького",img:""},
-  {id:2,title:"2-комнатная квартира",type:"Квартира",rooms:2,area:55,price:34000,addr:"Шираки",img:""},
-  {id:3,title:"Дом с садом",type:"Дом",rooms:4,area:140,price:89000,addr:"Старый город",img:""},
-  {id:4,title:"Участок под строительство",type:"Участок",rooms:0,area:600,price:18000,addr:"Окраина Гюмри",img:""}
- ]};
-const $=id=>document.getElementById(id);
-const esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
-const safeImg=u=>/^(https?:\/\/|img\/|data:image\/)/.test(u)?u:"";
-let state=DEFAULT, editId=null;
 
-function save(){try{localStorage.setItem(KEY,JSON.stringify(state))}catch(e){}}
-async function load(){
-  let draft=null;
-  try{draft=JSON.parse(localStorage.getItem(KEY))}catch(e){}
-  if(draft&&draft.listings){state=draft}
-  else{
-    try{const r=await fetch("data.json",{cache:"no-store"});if(r.ok)state=await r.json()}catch(e){}
-  }
-  renderAll();
-}
-function renderTexts(){
-  const t=state.texts;
-  $("heroTitle").textContent=t.title;$("heroText").textContent=t.text;
-  $("phoneLink").textContent=t.phone;$("phoneLink").href="tel:"+t.phone.replace(/[^\d+]/g,"");
-  $("emailLink").textContent=t.email;$("emailLink").href="mailto:"+t.email;
-}
-function render(){
-  const t=$("type").value,r=$("rooms").value,m=+$("max").value;
-  const list=state.listings.filter(l=>(!t||l.type===t)&&(!r||(r==="3"?l.rooms>=3:l.rooms==r))&&(!m||l.price<=m));
-  $("grid").innerHTML=list.map(l=>{
-    const img=safeImg(l.img);
-    return `<article class="card">
-    <div class="pic"${img?` style="background-image:url('${esc(img)}')"`:""}>${esc(l.type)}</div>
-    <div class="body"><div class="price">$${Number(l.price).toLocaleString("ru")}</div>
-    <div>${esc(l.title)}</div>
-    <div class="meta">${esc(l.addr||"")}${l.area?` · ${esc(l.area)} м²`:""}${l.rooms?` · ${esc(l.rooms)} комн.`:""}</div>
-    <a class="btn" href="#contact">Узнать подробнее</a>
-    <button class="btn alt admin-only" data-edit="${l.id}">Изменить</button>
-    <button class="btn del admin-only" data-del="${l.id}">Удалить</button></div></article>`}).join("");
-  $("empty").style.display=list.length?"none":"block";
-}
-function renderAll(){renderTexts();render();
-  const t=state.texts;$("tTitle").value=t.title;$("tText").value=t.text;$("tPhone").value=t.phone;$("tEmail").value=t.email;}
+let listings = JSON.parse(
+    localStorage.getItem("artHouseListings")
+) || [];
 
-$("grid").addEventListener("click",e=>{
-  const d=e.target.dataset;
-  if(d.del&&confirm("Удалить это объявление?")){state.listings=state.listings.filter(l=>l.id!=d.del);save();render()}
-  if(d.edit){const l=state.listings.find(x=>x.id==d.edit);editId=l.id;
-    $("fTitle").value=l.title;$("fType").value=l.type;$("fRooms").value=l.rooms;$("fArea").value=l.area;
-    $("fPrice").value=l.price;$("fAddr").value=l.addr;$("fImg").value=l.img||"";
-    $("formTitle").textContent="Изменить объявление";$("fSubmit").textContent="Сохранить";$("fCancel").style.display="";
-    $("admin").scrollIntoView({behavior:"smooth"})}
-});
-function resetForm(){editId=null;$("itemForm").reset();$("formTitle").textContent="Добавить объявление";$("fSubmit").textContent="Добавить";$("fCancel").style.display="none"}
-$("fCancel").onclick=resetForm;
-$("itemForm").addEventListener("submit",e=>{
-  e.preventDefault();
-  const item={title:$("fTitle").value.trim(),type:$("fType").value,rooms:+$("fRooms").value||0,area:+$("fArea").value||0,price:+$("fPrice").value||0,addr:$("fAddr").value.trim(),img:$("fImg").value.trim()};
-  if(editId){state.listings=state.listings.map(l=>l.id===editId?{...l,...item}:l)}
-  else{item.id=Date.now();state.listings.unshift(item)}
-  save();render();resetForm();
-});
-$("textForm").addEventListener("submit",e=>{
-  e.preventDefault();
-  state.texts={title:$("tTitle").value,text:$("tText").value,phone:$("tPhone").value,email:$("tEmail").value};
-  save();renderTexts();alert("Тексты сохранены");
-});
-$("exportBtn").onclick=()=>{
-  const a=document.createElement("a");
-  a.href=URL.createObjectURL(new Blob([JSON.stringify(state,null,2)],{type:"application/json"}));
-  a.download="data.json";a.click();
-};
-$("resetBtn").onclick=()=>{if(confirm("Удалить черновик и вернуться к опубликованной версии?")){localStorage.removeItem(KEY);location.reload()}};
 
-function setAdmin(on){document.body.classList.toggle("is-admin",on);$("loginBtn").style.display=on?"none":""}
-$("loginBtn").onclick=()=>{
-  if(prompt("Пароль администратора:")===ADMIN_PASSWORD){sessionStorage.setItem("adm","1");setAdmin(true)}
-  else alert("Неверный пароль");
-};
-$("logoutBtn").onclick=()=>{sessionStorage.removeItem("adm");setAdmin(false)};
-["type","rooms","max"].forEach(i=>$(i).addEventListener("input",render));
-$("y").textContent=new Date().getFullYear();
-setAdmin(sessionStorage.getItem("adm")==="1");
-load();
+function saveListings() {
+
+    localStorage.setItem(
+        "artHouseListings",
+        JSON.stringify(listings)
+    );
+
+}
+
+
+function openModal() {
+
+    document.getElementById("modal").style.display = "flex";
+
+}
+
+
+function closeModal() {
+
+    document.getElementById("modal").style.display = "none";
+
+    document.getElementById("listingForm").reset();
+
+}
+
+
+document.getElementById("listingForm").addEventListener(
+    "submit",
+    function(event) {
+
+        event.preventDefault();
+
+        const file = document.getElementById("image").files[0];
+
+        if (file) {
+
+            const reader = new FileReader();
+
+            reader.onload = function(e) {
+
+                createListing(e.target.result);
+
+            };
+
+            reader.readAsDataURL(file);
+
+        } else {
+
+            createListing("");
+
+        }
+
+    }
+);
+
+
+function createListing(image) {
+
+    const listing = {
+
+        id: Date.now(),
+
+        type: document.getElementById("propertyType").value,
+
+        title: document.getElementById("title").value,
+
+        address: document.getElementById("address").value,
+
+        price: document.getElementById("price").value,
+
+        area: document.getElementById("area").value,
+
+        rooms: document.getElementById("rooms").value,
+
+        floor: document.getElementById("floor").value,
+
+        image: image,
+
+        description: document.getElementById("description").value
+
+    };
+
+
+    listings.unshift(listing);
+
+    saveListings();
+
+    closeModal();
+
+    displayListings();
+
+}
+
+
+function deleteListing(id) {
+
+    if (
+        confirm(
+            "Вы действительно хотите удалить это объявление?"
+        )
+    ) {
+
+        listings = listings.filter(
+            listing => listing.id !== id
+        );
+
+        saveListings();
+
+        displayListings();
+
+    }
+
+}
+
+
+function displayListings() {
+
+    const container =
+        document.getElementById("listings");
+
+    const search =
+        document.getElementById("searchInput")
+        .value
+        .toLowerCase();
+
+    const type =
+        document.getElementById("typeFilter").value;
+
+    const rooms =
+        document.getElementById("roomsFilter").value;
+
+
+    const filtered =
+        listings.filter(listing => {
+
+            const matchSearch =
+                listing.address
+                .toLowerCase()
+                .includes(search);
+
+            const matchType =
+                !type ||
+                listing.type === type;
+
+            const matchRooms =
+                !rooms ||
+                listing.rooms === rooms;
+
+            return (
+                matchSearch &&
+                matchType &&
+                matchRooms
+            );
+
+        });
+
+
+    container.innerHTML = "";
+
+
+    if (filtered.length === 0) {
+
+        container.innerHTML = `
+            <div class="empty">
+                <h3>Объявлений пока нет</h3>
+                <p>Нажмите «Добавить объявление»</p>
+            </div>
+        `;
+
+        return;
+
+    }
+
+
+    filtered.forEach(listing => {
+
+        const card =
+            document.createElement("div");
+
+        card.className = "card";
+
+
+        const image =
+            listing.image ||
+            "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80";
+
+
+        card.innerHTML = `
+
+            <img
+                class="card-image"
+                src="${image}"
+            >
+
+            <div class="card-content">
+
+                <h3>
+                    ${listing.title}
+                </h3>
+
+                <div class="price">
+                    $${Number(listing.price).toLocaleString()}
+                </div>
+
+                <div class="info">
+
+                    📍 ${listing.address}
+
+                    <br>
+
+                    🏠 ${listing.type}
+
+                    <br>
+
+                    📐 ${listing.area} м²
+
+                    <br>
+
+                    🛏 ${listing.rooms} ком.
+
+                    <br>
+
+                    🏢 Этаж: ${listing.floor || "—"}
+
+                </div>
+
+
+                <div class="buttons">
+
+                    <button
+                        class="details-button"
+                        onclick="showDetails(${listing.id})"
+                    >
+                        Подробнее
+                    </button>
+
+                    <button
+                        class="delete-button"
+                        onclick="deleteListing(${listing.id})"
+                    >
+                        Удалить
+                    </button>
+
+                </div>
+
+            </div>
+
+        `;
+
+
+        container.appendChild(card);
+
+    });
+
+}
+
+
+function showDetails(id) {
+
+    const listing =
+        listings.find(
+            item => item.id === id
+        );
+
+
+    if (!listing) return;
+
+
+    alert(
+
+        listing.title +
+        "\n\n" +
+
+        "Тип: " + listing.type +
+        "\n" +
+
+        "Адрес: " + listing.address +
+        "\n" +
+
+        "Цена: $" + listing.price +
+        "\n" +
+
+        "Площадь: " + listing.area + " м²" +
+        "\n" +
+
+        "Комнаты: " + listing.rooms +
+        "\n" +
+
+        "Этаж: " + (listing.floor || "—") +
+        "\n\n" +
+
+        listing.description
+
+    );
+
+}
+
+
+displayListings();
+
 </script>
+
 </body>
 </html>
